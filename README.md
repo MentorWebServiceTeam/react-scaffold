@@ -8,7 +8,7 @@ git clone git@github.com:MentorWebServiceTeam/react-scaffold.git
 npm install
 ```
 
-Open two terminal windows
+Open two terminal windows, then open http://localhost:8080/home in your browser.
 ```sh
 # Window 1
 npm start
