@@ -25,3 +25,6 @@ npm run test:watch
 # or
 npm run test:cov
 ```
+
+## Additional Features
+This project supports the Redux Dev Tools Google Chrome/Firefox extensions. This is a highly recommended state debugging tool. 
