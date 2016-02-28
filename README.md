@@ -17,6 +17,14 @@ npm start
 npm run webpack:watch
 ```
 
+(Optional) Create a .env file in the project root. This is ignored by default.
+```sh
+# Example
+NODE_ENV=development
+PORT=8080
+SECRET=shhh
+```
+
 ## Tests & Coverage
 ```sh
 npm run test
