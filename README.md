@@ -11,7 +11,7 @@ npm install
 Open two terminal windows, then open http://localhost:8080/home in your browser.
 ```sh
 # Window 1
-npm start
+npm run dev
 
 # Window 2
 npm run webpack:watch
@@ -35,4 +35,4 @@ npm run test:cov
 ```
 
 ## Additional Features
-This project supports the Redux Dev Tools Google Chrome/Firefox extensions. This is a highly recommended state debugging tool. 
+This project supports the Redux Dev Tools Google Chrome/Firefox extensions. This is a highly recommended state debugging tool.

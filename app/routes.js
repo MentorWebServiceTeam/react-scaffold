@@ -5,8 +5,8 @@ export default {
   component: Layout,
   childRoutes: [
     {
-      path: '/home',
+      path: '/',
       component: App
     }
   ]
-}
+};

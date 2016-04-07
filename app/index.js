@@ -7,12 +7,11 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './store';
 import routes from './routes';
 
-const initialState = window.__INITIAL_STATE__ || {};
-const store = configureStore(browserHistory);
-const { pathname, search, hash } = window.location;
-const location = `${pathname}${search}${hash}`;
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState, browserHistory);
+const history = syncHistoryWithStore(browserHistory, store);
 
-match({ location, routes }, () => {
+match({ history, routes }, () => {
   render(
     (
       <Provider store={store}>

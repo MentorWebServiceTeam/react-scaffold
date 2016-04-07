@@ -4,11 +4,13 @@ import DocumentTitle from 'react-document-title';
 function Layout({ children }) {
   return (
     <DocumentTitle title="Example Application">
-      <div>
-        <h1>Example application</h1>
-        <div className="row">
-          <div className="col-md-12">
-            {children}
+      <div className="container-main container-grey">
+        <div className="container-full">
+          <h1>Example application</h1>
+          <div className="row">
+            <div className="col-md-12">
+              {children}
+            </div>
           </div>
         </div>
       </div>

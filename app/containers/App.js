@@ -6,21 +6,26 @@ import { decrement, increment, getAsyncData } from '../actions/ExampleActionCrea
 
 @connect(state => ({
   example: state.example
-}), { decrement, increment, getAsyncData })
+}))
 class App extends Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
-    decrement: PropTypes.func.isRequired,
-    increment: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    example: PropTypes.shape({
+      counter: PropTypes.number.isRequired,
+      data: PropTypes.array.isRequired,
+      error: PropTypes.bool,
+      isLoading: PropTypes.bool.isRequired
+    }).isRequired
   };
 
   componentDidMount() {
-    const { getAsyncData } = this.props;
-    getAsyncData();
+    const { dispatch } = this.props;
+    dispatch(getAsyncData());
   }
 
   render() {
-    const { example, decrement, increment } = this.props;
+    const { example, dispatch } = this.props;
     const { counter, data, error, isFetching } = example;
 
     return (
@@ -28,18 +33,20 @@ class App extends Component {
         <div>
           <h2>Counter: {counter}</h2>
           <div className="btn-group">
-            <button className="btn btn-default btn-lg" onClick={() => decrement()}>-</button>
-            <button className="btn btn-default btn-lg" onClick={() => increment()}>+</button>
+            <button className="btn btn-default btn-lg" onClick={() => dispatch(decrement())}>
+              -
+            </button>
+            <button className="btn btn-default btn-lg" onClick={() => dispatch(increment())}>
+              +
+            </button>
           </div>
           <h3>Async Request</h3>
           {isFetching && <span>Loading...</span>}
           {(!isFetching && !error) && <div>
             <ul>
-              {data.map((item, index) => {
-                return (
-                  <li key={index}>{item}</li>
-                );
-              })}
+              {data.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>}
         </div>
